@@ -20,37 +20,37 @@ function App() {
   const videoItems = [
     {
       id: 1,
-      videoUrl: "src/images/03291.mp4",
+      videoUrl: "./images/03291.mp4",
       author: "@Laza",
       caption: "Ma moze"
     },
     {
       id: 2,
-      videoUrl: "src/images/Heee_jeste_smotani.mp4",
+      videoUrl: "./images/Heee_jeste_smotani.mp4",
       author: "@Fare",
       caption: "Hee jeste smotani"
     },
     {
       id: 3,
-      videoUrl: "src/images/Sequence_4.mp4",
+      videoUrl: "./images/Sequence_4.mp4",
       author: "@28",
       caption: "Ne zna se koga ce nacelnik prije ubit"
     },
     {
       id: 4,
-      videoUrl: "src/images/upadskraceno.mov",
+      videoUrl: "./images/upadskraceno.mov",
       author: "@_Luka32!",
       caption: "LSPD's finest "
     },
     {
       id: 5,
-      videoUrl: "src/images/viktor.mp4",
+      videoUrl: "./images/viktor.mp4",
       author: "@Shakur",
       caption: "Treba odma da se oformi SWAT tim!"
     },
     {
       id: 6,
-      videoUrl: "src/images/vristanje.mp4",
+      videoUrl: "./images/vristanje.mp4",
       author: "@Laza",
       caption: "Kad ovo da se presvlacis... Ova strelica, vidis?"
     }
@@ -60,37 +60,37 @@ function App() {
   const galleryItems = [
     {
       id: 1,
-      image: "src/images/banka.png",
+      image: "./images/banka.png",
       author: "@_Luka32!",
       caption: "Bank Pljačking Unit 001"
     },
     {
       id: 2,
-      image: "src/images/chill.png",
+      image: "./images/chill.png",
       author: "@Patrisha",
       caption: "Plazmaaa✌️"
     },
     {
       id: 3,
-      image: "src/images/lspd.png",
+      image: "./images/lspd.png",
       author: "@_Luka32!",
       caption: "When cops call 911"
     },
     {
       id: 4,
-      image: "src/images/offroad.png",
+      image: "./images/offroad.png",
       author: "@Naty",
       caption: "Offroad event <3"
     },
     {
       id: 5,
-      image: "src/images/racing.png",
+      image: "./images/racing.png",
       author: "@_Luka32!",
       caption: "Unique Racing Scene"
     },
     {
       id: 6,
-      image: "src/images/vagos.png",
+      image: "./images/vagos.png",
       author: "@Vex",
       caption: "Vagos"
     }
