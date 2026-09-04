@@ -1,0 +1,228 @@
+/* --- PRAVILA STRANICA --- */
+.pravila-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  color: #fff;
+}
+
+/* Hero Naslov */
+.pravila-hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.pravila-hero h1 {
+  font-size: 3.8rem; /* Povećano (prije 2.8rem) */
+  font-weight: 800;
+  margin: 10px 0 15px;
+  letter-spacing: 1px;
+  line-height: 1.12;
+}
+
+.pravila-hero p {
+  color: #a0a5b5;
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 1.35rem; /* Povećano (prije 1.05rem) */
+  line-height: 1.6;
+}
+
+/* Controls (Pretraga i Tabovi) */
+.pravila-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 35px;
+}
+
+/* Search Box */
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 0 15px;
+  transition: all 0.3s ease;
+}
+
+.search-box:focus-within {
+  border-color: #8a2be2;
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.25);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.search-box svg {
+  color: #7b7f95;
+  margin-right: 10px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 14px 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 1rem; /* Standardizirano polje za unos */
+}
+
+.clear-search {
+  background: transparent;
+  border: none;
+  color: #a0a5b5;
+  font-size: 1.15rem; /* Povećano (prije 1.1rem) */
+  cursor: pointer;
+  padding: 5px;
+}
+
+.clear-search:hover {
+  color: #fff;
+}
+
+/* Tabs Filter Buttons */
+.pravila-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.tab-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #b3b8ca;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 0.95rem; /* Usklađeno s ostalim tabovima */
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.tab-btn.active {
+  background: linear-gradient(135deg, #8a2be2, #4a00e0);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
+}
+
+/* Grid s Karticama Pravila */
+.pravila-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+/* Kartica Pravila */
+.rule-card {
+  background: rgba(20, 22, 32, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.rule-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(138, 43, 226, 0.5);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.rule-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.rule-card-header h3 {
+  font-size: 1.4rem; /* Povećano (prije 1.15rem) */
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+}
+
+.rule-tag {
+  font-size: 0.85rem; /* Povećano (prije 0.75rem) */
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(138, 43, 226, 0.15);
+  color: #a855f7;
+  border: 1px solid rgba(138, 43, 226, 0.3);
+  white-space: nowrap;
+}
+
+.rule-tag.tag-danger {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.rule-description {
+  color: #a0a5b5;
+  font-size: 1.05rem; /* Povećano (prije 0.95rem) */
+  line-height: 1.55;
+  margin-bottom: 15px;
+}
+
+.rule-example {
+  background: rgba(0, 0, 0, 0.25);
+  border-left: 3px solid #8a2be2;
+  padding: 12px 14px;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.92rem; /* Povećano (prije 0.85rem) */
+  color: #d1d5db;
+  line-height: 1.5;
+}
+
+.rule-example strong {
+  color: #c084fc;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Nije pronađeno status */
+.no-rules-found {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 50px 20px;
+  color: #a0a5b5;
+  font-size: 1.05rem;
+}
+
+.no-rules-found h3 {
+  font-size: 1.5rem; /* Povećano (prije 1.3rem) */
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .pravila-hero h1 {
+    font-size: 2.4rem; /* Usklađeno s ostalim mobilnim naslovima */
+  }
+  
+  .pravila-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .pravila-tabs {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 5px;
+  }
+}

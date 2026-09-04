@@ -1,0 +1,366 @@
+/* --- STAFF TIM STRANICA --- */
+.staff-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  color: #fff;
+}
+
+/* Hero Naslov */
+.staff-hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.staff-hero h1 {
+  font-size: 3.8rem;
+  font-weight: 800;
+  margin: 10px 0 15px;
+  letter-spacing: 1px;
+  line-height: 1.12;
+}
+
+.staff-hero p {
+  color: #a0a5b5;
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 1.35rem;
+  line-height: 1.6;
+}
+
+/* ===================================================
+   KONTROLNI PANEL (SEARCH BAR & FILTERI)
+   =================================================== */
+.staff-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto 40px auto;
+}
+
+/* Search Bar */
+.search-bar-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  color: #8a2be2;
+  pointer-events: none;
+}
+
+.staff-search-input {
+  width: 100%;
+  background: rgba(20, 22, 32, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 14px 18px 14px 48px;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.staff-search-input::placeholder {
+  color: #6c727f;
+}
+
+.staff-search-input:focus {
+  border-color: #8a2be2;
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.35), inset 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Filteri po ulogama */
+.staff-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.filter-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #b3b8ca;
+  padding: 9px 20px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, #8a2be2, #4a00e0);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
+}
+
+/* Poruka kada pretraga ne pronađe člana */
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(20, 22, 32, 0.4);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  margin-top: 20px;
+}
+
+.no-results h3 {
+  color: #fff;
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+.no-results p {
+  color: #a0a5b5;
+  font-size: 1.1rem;
+}
+
+/* ===================================================
+   STAFF GRID I KARTICE
+   =================================================== */
+.staff-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+/* Staff Kartica */
+.staff-card {
+  background: rgba(20, 22, 32, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.staff-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Gornji dio kartice */
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.avatar-wrapper {
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+
+.staff-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  padding: 4px;
+  object-fit: cover;
+}
+
+.online-status {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 14px;
+  height: 14px;
+  background-color: #22c55e;
+  border: 2px solid #141620;
+  border-radius: 50%;
+}
+
+/* Informacije o članu */
+.card-info {
+  margin-bottom: 20px;
+}
+
+.staff-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 8px 0;
+  letter-spacing: 0.5px;
+}
+
+.staff-desc {
+  color: #9ca3af;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Discord gumb na kartici */
+.card-footer {
+  margin-top: auto;
+}
+
+.btn-discord-copy {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #d1d5db;
+  padding: 11px 14px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-discord-copy:hover {
+  background: rgba(88, 101, 242, 0.2);
+  border-color: #5865F2;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+}
+
+/* ===================================================
+   PALETA BOJA I OBRUBA ZA SVAKU ROLE ULOGU
+   =================================================== */
+
+.role-badge {
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  border: 1px solid transparent;
+}
+
+/* 1. VLASNIK - Ljubičasto / Pink Glow */
+.role-bg-vlasnik {
+  background: rgba(213, 68, 239, 0.15);
+  color: #e226ff;
+  border-color: rgba(176, 68, 239, 0.4);
+  box-shadow: 0 0 10px rgba(188, 68, 239, 0.2);
+}
+.staff-card.role-border-vlasnik:hover {
+  border-color: #e444ef;
+}
+
+/* 2. DEVELOPER - Svijetlo Plava / Cyan Glow */
+.role-bg-developer {
+  background: rgba(6, 182, 212, 0.15);
+  color: #22d3ee;
+  border-color: rgba(6, 182, 212, 0.4);
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.2);
+}
+.staff-card.role-border-developer:hover {
+  border-color: #06b6d4;
+}
+
+/* 3. VODJA STAFFA - Kraljevska Ljubičasta */
+.role-bg-vodja-staffa {
+  background: rgba(168, 85, 247, 0.18);
+  color: #c084fc;
+  border-color: rgba(168, 85, 247, 0.4);
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.2);
+}
+.staff-card.role-border-vodja-staffa:hover {
+  border-color: #a855f7;
+}
+
+/* 4. MAPER - Crvena */
+.role-bg-maper {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border-color: rgba(239, 68, 68, 0.4);
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.2);
+}
+.staff-card.role-border-maper:hover {
+  border-color: #ef4444;
+}
+
+/* 5. CAR DEVELOPER - Smaragdno Zelena */
+.role-bg-car-developer {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border-color: rgba(16, 185, 129, 0.4);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+}
+.staff-card.role-border-car-developer:hover {
+  border-color: #10b981;
+}
+
+/* 6. POMOCNI DEVELOPER - Tirkizna */
+.role-bg-pomocni-developer {
+  background: rgba(20, 184, 166, 0.15);
+  color: #2dd4bf;
+  border-color: rgba(20, 184, 166, 0.4);
+}
+.staff-card.role-border-pomocni-developer:hover {
+  border-color: #14b8a6;
+}
+
+/* 7. HIGH STAFF - Pink / Magenta Glow */
+.role-bg-high-staff {
+  background: rgba(236, 72, 153, 0.15);
+  color: #f472b6;
+  border-color: rgba(236, 72, 153, 0.4);
+}
+.staff-card.role-border-high-staff:hover {
+  border-color: #ec4899;
+}
+
+/* 8. ADMINISTRATOR - Tamno Plava */
+.role-bg-administrator {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  border-color: rgba(59, 130, 246, 0.4);
+}
+.staff-card.role-border-administrator:hover {
+  border-color: #3b82f6;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .staff-hero h1 {
+    font-size: 2.4rem;
+  }
+
+  .staff-hero p {
+    font-size: 1.1rem;
+  }
+
+  .staff-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .search-bar-wrapper {
+    max-width: 100%;
+  }
+}

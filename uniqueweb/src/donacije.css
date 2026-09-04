@@ -1,0 +1,338 @@
+/* --- DONACIJE / POSLOVI ZA ORGANIZACIJE --- */
+.donacije-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  color: #fff;
+}
+
+/* Hero Naslov */
+.donacije-hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.donacije-hero h1 {
+  font-size: 3.8rem; /* Povećano (prije 2.8rem) */
+  font-weight: 800;
+  margin: 10px 0 15px;
+  letter-spacing: 1px;
+  line-height: 1.12;
+}
+
+.donacije-hero p {
+  color: #a0a5b5;
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 1.35rem; /* Povećano (prije 1.05rem) */
+  line-height: 1.6;
+}
+
+/* Kontrole (Pretraga & Filteri) */
+.donacije-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 35px;
+}
+
+.donacije-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 0 15px;
+  transition: all 0.3s ease;
+}
+
+.donacije-search:focus-within {
+  border-color: #8a2be2;
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.25);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.donacije-search svg {
+  color: #7b7f95;
+  margin-right: 10px;
+}
+
+.donacije-search input {
+  width: 100%;
+  padding: 14px 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 1rem; /* Usklađeno s input poljima */
+}
+
+.clear-btn {
+  background: transparent;
+  border: none;
+  color: #a0a5b5;
+  font-size: 1.15rem; /* Povećano (prije 1.1rem) */
+  cursor: pointer;
+  padding: 5px;
+}
+
+.clear-btn:hover {
+  color: #fff;
+}
+
+/* Tab gumbi */
+.donacije-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.tab-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #b3b8ca;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 0.95rem; /* Usklađeno s novim tabovima */
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.tab-btn.active {
+  background: linear-gradient(135deg, #8a2be2, #4a00e0);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
+}
+
+/* Grid kartica */
+.donacije-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 22px;
+}
+
+/* Kartica posla */
+.job-card {
+  background: rgba(20, 22, 32, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.job-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #8a2be2, #4a00e0);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.job-card.ilegalno::before {
+  background: linear-gradient(90deg, #e11d48, #9333ea);
+}
+
+.job-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(138, 43, 226, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.job-card:hover::before {
+  opacity: 1;
+}
+
+/* Header kartice */
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.job-icon {
+  font-size: 2.2rem;
+  background: rgba(255, 255, 255, 0.05);
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.job-badges {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.badge-type {
+  font-size: 0.85rem; /* Povećano (prije 0.72rem) */
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-type.legalno {
+  background: rgba(138, 43, 226, 0.15);
+  color: #c084fc;
+  border: 1px solid rgba(138, 43, 226, 0.3);
+}
+
+.badge-type.ilegalno {
+  background: rgba(225, 29, 72, 0.15);
+  color: #fb7185;
+  border: 1px solid rgba(225, 29, 72, 0.3);
+}
+
+.badge-status {
+  font-size: 0.8rem; /* Povećano (prije 0.7rem) */
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(34, 197, 94, 0.15);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+/* Naslov i opis */
+.job-title {
+  font-size: 1.5rem; /* Povećano (prije 1.25rem) */
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 10px 0;
+}
+
+.job-description {
+  color: #a0a5b5;
+  font-size: 1.05rem; /* Povećano (prije 0.92rem) */
+  line-height: 1.55;
+  margin-bottom: 20px;
+}
+
+/* Footer i Akcijsko dugme */
+.job-footer {
+  margin-top: auto;
+}
+
+.btn-request {
+  display: block;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #fff;
+  padding: 11px 16px;
+  border-radius: 8px;
+  font-size: 0.95rem; /* Povećano (prije 0.88rem) */
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-request:hover {
+  background: #8a2be2;
+  border-color: #8a2be2;
+  box-shadow: 0 4px 15px rgba(138, 43, 226, 0.35);
+}
+
+/* Info Banner pri dnu */
+.donacije-info-banner {
+  margin-top: 50px;
+  background: linear-gradient(135deg, rgba(138, 43, 226, 0.15), rgba(74, 0, 224, 0.1));
+  border: 1px solid rgba(138, 43, 226, 0.3);
+  border-radius: 16px;
+  padding: 30px 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  backdrop-filter: blur(8px);
+}
+
+.info-content h2 {
+  font-size: 1.5rem; /* Povećano (prije 1.4rem) */
+  font-weight: 800;
+  margin: 0 0 8px 0;
+  color: #fff;
+}
+
+.info-content p {
+  color: #b3b8ca;
+  margin: 0;
+  font-size: 1.05rem; /* Povećano (prije 0.95rem) */
+  max-width: 700px;
+  line-height: 1.55;
+}
+
+.btn-discord-action {
+  background: linear-gradient(135deg, #8a2be2, #4a00e0);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 0.95rem; /* Dodano/usklađeno */
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 4px 20px rgba(138, 43, 226, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-discord-action:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(138, 43, 226, 0.6);
+}
+
+.no-jobs {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 50px 20px;
+  color: #a0a5b5;
+  font-size: 1.05rem; /* Dodano radi čitljivosti */
+}
+
+/* Responsiveness */
+@media (max-width: 850px) {
+  .donacije-info-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .btn-discord-action {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .donacije-hero h1 {
+    font-size: 2.4rem; /* Usklađeno s mobilnim naslovima (prije 2.1rem) */
+  }
+
+  .donacije-grid {
+    grid-template-columns: 1fr;
+  }
+}

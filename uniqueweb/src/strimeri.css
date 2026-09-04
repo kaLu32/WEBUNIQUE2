@@ -1,0 +1,353 @@
+/* --- STRIMERI STRANICA --- */
+.staff-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  color: #fff;
+}
+
+/* Hero Naslov */
+.staff-hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.staff-hero h1 {
+  font-size: 3.8rem;
+  font-weight: 800;
+  margin: 10px 0 15px;
+  letter-spacing: 1px;
+  line-height: 1.12;
+}
+
+.staff-hero p {
+  color: #a0a5b5;
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 1.35rem;
+  line-height: 1.6;
+}
+
+/* ===================================================
+   KONTROLE (PRETRAGA IZ DONACIJA & FILTERI)
+   =================================================== */
+.donacije-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 35px;
+}
+
+.donacije-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 0 15px;
+  transition: all 0.3s ease;
+  max-width: 500px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.donacije-search:focus-within {
+  border-color: #8a2be2;
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.25);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.donacije-search svg {
+  color: #7b7f95;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.donacije-search input {
+  width: 100%;
+  padding: 14px 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.donacije-search input::placeholder {
+  color: #6c727f;
+}
+
+.clear-btn {
+  background: none;
+  border: none;
+  color: #7b7f95;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0 5px;
+  transition: color 0.2s ease;
+}
+
+.clear-btn:hover {
+  color: #fff;
+}
+
+/* Filteri po platformi */
+.staff-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.filter-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #b3b8ca;
+  padding: 9px 20px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, #8a2be2, #4a00e0);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
+}
+
+/* Poruka kada nema rezultata */
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(20, 22, 32, 0.4);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  margin-top: 20px;
+}
+
+.no-results h3 {
+  color: #fff;
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+.no-results p {
+  color: #a0a5b5;
+  font-size: 1.1rem;
+}
+
+/* ===================================================
+   GRID I KARTICE STRIMERA
+   =================================================== */
+.staff-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.staff-card {
+  background: rgba(20, 22, 32, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.staff-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.avatar-wrapper {
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+
+.staff-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  padding: 4px;
+  object-fit: cover;
+}
+
+.online-status {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 14px;
+  height: 14px;
+  background-color: #22c55e;
+  border: 2px solid #141620;
+  border-radius: 50%;
+}
+
+.card-info {
+  margin-bottom: 20px;
+}
+
+.staff-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 8px 0;
+  letter-spacing: 0.5px;
+}
+
+.staff-desc {
+  color: #9ca3af;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ===================================================
+   SOCIAL BUTTONS
+   =================================================== */
+.streamer-footer {
+  margin-top: auto;
+}
+
+.streamer-social-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+}
+
+.social-btn {
+  flex: 1 1 calc(50% - 4px);
+  min-width: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #d1d5db;
+}
+
+.social-btn.kick:hover {
+  background: rgba(83, 252, 24, 0.15);
+  border-color: #53fc18;
+  color: #53fc18;
+  box-shadow: 0 4px 15px rgba(83, 252, 24, 0.2);
+}
+
+.social-btn.twitch:hover {
+  background: rgba(145, 70, 255, 0.15);
+  border-color: #9146ff;
+  color: #9146ff;
+  box-shadow: 0 4px 15px rgba(145, 70, 255, 0.2);
+}
+
+.social-btn.youtube:hover {
+  background: rgba(255, 0, 0, 0.15);
+  border-color: #ff0000;
+  color: #ff0000;
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.2);
+}
+
+.social-btn.tiktok:hover {
+  background: rgba(254, 44, 85, 0.15);
+  border-color: #fe2c55;
+  color: #fe2c55;
+  box-shadow: 0 4px 15px rgba(254, 44, 85, 0.2);
+}
+
+.social-btn.instagram:hover {
+  background: rgba(225, 48, 108, 0.15);
+  border-color: #e1306c;
+  color: #e1306c;
+  box-shadow: 0 4px 15px rgba(225, 48, 108, 0.2);
+}
+
+/* ===================================================
+   PALETA BOJA I OBRUBA ZA SVAKU ROLE ULOGU
+   =================================================== */
+.role-badge {
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  border: 1px solid transparent;
+}
+
+.role-bg-vlasnik {
+  background: rgba(213, 68, 239, 0.15);
+  color: #e226ff;
+  border-color: rgba(176, 68, 239, 0.4);
+}
+.role-border-vlasnik:hover {
+  border-color: #e444ef;
+}
+
+.role-bg-developer {
+  background: rgba(6, 182, 212, 0.15);
+  color: #22d3ee;
+  border-color: rgba(6, 182, 212, 0.4);
+}
+.role-border-developer:hover {
+  border-color: #06b6d4;
+}
+
+.role-bg-vodja-staffa {
+  background: rgba(168, 85, 247, 0.18);
+  color: #c084fc;
+  border-color: rgba(168, 85, 247, 0.4);
+}
+.role-border-vodja-staffa:hover {
+  border-color: #a855f7;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .staff-hero h1 {
+    font-size: 2.4rem;
+  }
+
+  .staff-hero p {
+    font-size: 1.1rem;
+  }
+
+  .staff-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .donacije-search {
+    max-width: 100%;
+  }
+}

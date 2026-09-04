@@ -1,0 +1,858 @@
+/* ==========================================================
+   UNIQUE RP - ALTERNATING LEFT/RIGHT LAYOUT (PURPLE EDITION)
+   ========================================================== */
+
+:root {
+  --primary-purple: #a855f7;
+  --primary-purple-dark: #7e22ce;
+  --purple-glow: rgba(168, 85, 247, 0.25);
+  --accent-gold: #eab308;
+  
+  --bg-black: #070709;
+  --card-bg: #0f0e15;
+  --card-border: #1e1b2e;
+  
+  --text-white: #ffffff;
+  --text-muted: #8c89a0;
+  
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* SPREČAVANJE HORIZONTALNOG SCROLLA / RUPA NA MOBITELU */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-black);
+  /* Mrežasta / Grid pozadina */
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  color: var(--text-white);
+  line-height: 1.5;
+}
+
+/* --- Slojevi: animirana scroll linija ide iza sadrzaja --- */
+.app-container {
+  position: relative;
+}
+
+.top-banner,
+.hero,
+.section-layout,
+.footer,
+main {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Top Banner --- */
+.top-banner {
+  background: linear-gradient(90deg, #3b0764, #7e22ce, #3b0764);
+  color: #fff;
+  text-align: center;
+  padding: 6px 15px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* --- Navigacija --- */
+.navbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 8%;
+  background: rgba(7, 7, 9, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--card-border);
+  z-index: 1000;
+}
+
+.nav-logo {
+  font-size: 1.7rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.purple-text {
+  color: var(--primary-purple);
+}
+
+.purple-bg {
+  background-color: var(--primary-purple) !important;
+  color: white !important;
+}
+
+.purple-gradient-text {
+  background: linear-gradient(135deg, #c084fc, #9333ea);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.8rem;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--primary-purple);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.server-status-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(168, 85, 247, 0.08);
+  border: 1px solid var(--card-border);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.status-dot.online {
+  width: 7px;
+  height: 7px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #22c55e;
+}
+
+.btn-discord {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #5865f2;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* --- HERO SEKCIJA --- */
+.hero {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 8%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.hero-content {
+  max-width: 700px;
+}
+
+.hero h1 {
+  font-size: 4.5rem;
+  font-weight: 900;
+  line-height: 1.05;
+  margin: 0.5rem 0 1.2rem 0;
+  text-transform: uppercase;
+  word-break: break-word;
+}
+
+.hero p {
+  color: var(--text-muted);
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.ip-box {
+  display: inline-flex;
+  align-items: center;
+  background: var(--card-bg);
+  border: 1px solid var(--primary-purple);
+  padding: 5px 5px 5px 15px;
+  border-radius: 4px;
+  gap: 15px;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 20px var(--purple-glow);
+  max-width: 100%;
+}
+
+.ip-text {
+  font-family: monospace;
+  font-weight: 700;
+  word-break: break-all;
+}
+
+.btn-copy {
+  background: var(--primary-purple);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: 800;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-primary {
+  background: var(--primary-purple);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* ==========================================================
+   GLAVNI LAYOUT ZA SEKCIJE
+   ========================================================== */
+
+.section-layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 320px minmax(450px, 880px);
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1900px;
+  margin: 0 auto;
+  padding: 4rem 4%;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.section-layout.section-reverse {
+  grid-template-columns: minmax(450px, 880px) 320px;
+}
+
+.section-layout.section-reverse .section-sidebar {
+  order: 2;
+}
+
+.section-layout.section-reverse .section-content {
+  order: 1;
+}
+
+.section-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.section-tag {
+  color: var(--primary-purple);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.section-sidebar h2 {
+  font-size: 3.3rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+  word-break: break-word;
+}
+
+.section-sidebar p {
+  color: var(--text-muted);
+  font-size: 1.25rem;
+  line-height: 1.6;
+}
+
+.partner-box {
+  margin-top: 3rem;
+}
+
+.partner-title {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+.partner-logos {
+  display: flex;
+  gap: 15px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 800;
+  opacity: 0.6;
+  flex-wrap: wrap;
+}
+
+/* --- NOVOSTI & KORACI --- */
+
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.news-item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.news-date {
+  padding-top: 0.4rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-family: monospace;
+}
+
+.news-title {
+  font-size: 1.35rem;
+  margin-bottom: 0.3rem;
+}
+
+.news-title.warning {
+  color: #f43f5e;
+}
+
+.news-body p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.step-row {
+  display: flex;
+  gap: 1.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  padding: 1.2rem 1.5rem;
+  border-radius: 4px;
+}
+
+.step-number {
+  padding-top: 0.5rem;
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--primary-purple);
+  opacity: 0.5;
+}
+
+.step-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.step-info p {
+  color: var(--text-muted);
+  font-size: 1.25rem;
+}
+
+.step-info code {
+  background: rgba(168, 85, 247, 0.15);
+  color: var(--primary-purple);
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+/* ==========================================================
+   VIDEO OBJAVE (KLIPOVI - VEĆE KARTICE)
+   ========================================================== */
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.video-card {
+  background: #111018;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-purple);
+  box-shadow: 0 8px 25px rgba(168, 85, 247, 0.2);
+}
+
+.video-img-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #000;
+}
+
+.video-img-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.play-button-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.play-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  padding-left: 3px;
+  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+}
+
+.video-card:hover .play-button-overlay {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.video-card:hover .play-icon {
+  transform: scale(1.15);
+  background: var(--primary-purple);
+  border-color: var(--primary-purple);
+}
+
+.video-card:hover .video-img-wrapper video {
+  transform: scale(1.04);
+}
+
+.video-card-info {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: #111018;
+}
+
+.video-author {
+  color: var(--accent-gold);
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+.video-caption {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ==========================================================
+   OBJAVE NA SERVERU (GALERIJA SLIKA - VEĆE KARTICE)
+   ========================================================== */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.gallery-card {
+  background: #111018;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-purple);
+  box-shadow: 0 8px 25px rgba(168, 85, 247, 0.2);
+}
+
+.gallery-img-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #000;
+}
+
+.gallery-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.gallery-card:hover .gallery-img-wrapper img {
+  transform: scale(1.04);
+}
+
+.gallery-card-info {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: #111018;
+}
+
+.gallery-author {
+  color: var(--accent-gold);
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+.gallery-caption {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ==========================================================
+   FULLSCREEN LIGHTBOX MODAL (AŽURIRANO - VEĆI PRIKAZ)
+   ========================================================== */
+
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(12px);
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.lightbox-container {
+  position: relative;
+  background: #111018;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  width: 92vw;
+  max-width: 1400px;
+  max-height: 92vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8), 0 0 25px var(--purple-glow);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.lightbox-close:hover {
+  background: var(--primary-purple);
+  transform: scale(1.1);
+}
+
+.lightbox-media {
+  width: 100%;
+  flex: 1;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.lightbox-media img {
+  width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  display: block;
+}
+
+.modal-video {
+  width: 100%;
+  max-height: 78vh;
+  outline: none;
+  object-fit: contain;
+}
+
+.lightbox-details {
+  padding: 1.2rem 1.5rem;
+  background: #111018;
+  border-top: 1px solid var(--card-border);
+}
+
+.lightbox-author {
+  color: var(--accent-gold);
+  font-weight: 800;
+  font-size: 0.95rem;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.lightbox-caption {
+  color: var(--text-white);
+  font-size: 0.95rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* --- FOOTER --- */
+.footer {
+  border-top: 1px solid var(--card-border);
+  padding: 3rem 8%;
+  /* Providno da bi animirana linija mogla da dodje do logotipa
+     (ista je boja kao pozadina body-ja) */
+  background: transparent;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+}
+
+.footer-right {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-right a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.footer-right a:hover {
+  color: var(--primary-purple);
+}
+
+/* ==========================================================
+   OPTIMIZIRANA RESPONZIVNOST ZA MOBITEL I TABLETE
+   ========================================================== */
+
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 1rem 5%;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: block;
+  }
+
+  .btn-discord {
+    display: none;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 5rem 5% 4rem 5%;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .ip-box {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    padding: 12px;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .btn-copy {
+    width: 100%;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    display: block;
+  }
+
+  .section-layout,
+  .section-layout.section-reverse {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 4rem 5%;
+  }
+
+  .section-sidebar {
+    order: 1 !important;
+  }
+
+  .section-content {
+    order: 2 !important;
+  }
+
+  .section-sidebar h2 {
+    font-size: 2rem;
+  }
+
+  .video-grid,
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .news-item {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+
+  .step-row {
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 1.2rem;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .footer-right {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .video-grid,
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lightbox-container {
+    width: 96vw;
+    max-height: 95vh;
+  }
+
+  .lightbox-media img,
+  .modal-video {
+    max-height: 65vh;
+  }
+}

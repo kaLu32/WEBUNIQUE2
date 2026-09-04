@@ -1,0 +1,55 @@
+/* ==========================================================
+   SCROLL LINE — animirana linija koja prati scroll
+   ========================================================== */
+
+/* Visina/sirina se NE zadaju u pikselima: zaokruzena vrednost bi
+   umela da bude piksel veca od kontejnera, cime body (koji je zbog
+   overflow-x: hidden i sam scroll kontejner) dobije drugi scrollbar. */
+.scroll-line-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.scroll-line-path {
+  fill: none;
+  stroke: url(#usl-grad);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 6px rgba(168, 85, 247, 0.45));
+}
+
+/* Tacka na slovu "i" */
+.scroll-line-dot {
+  fill: #c084fc;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  filter: drop-shadow(0 0 5px rgba(168, 85, 247, 0.8));
+}
+
+/* Vrh "olovke" koji putuje po liniji */
+.scroll-line-tip {
+  fill: #f3e8ff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  filter: drop-shadow(0 0 9px rgba(192, 132, 252, 0.95));
+}
+
+/* Na mobilnom layoutu nema praznog prostora — linija se sklanja */
+@media (max-width: 767px) {
+  .scroll-line-layer {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-line-tip {
+    display: none;
+  }
+}
